@@ -32,7 +32,7 @@ const Contacts = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [data, setData] = useState([]);
-  const [editObject, setEditObject] = useState({});
+  // const [editObject, setEditObject] = useState({});
   // const [editUserName, setEditUserName] = useState("");
 
   const { isOpen: isEditOpen, onOpen: onEditOpen, onClose: onEditClose } = useDisclosure();
