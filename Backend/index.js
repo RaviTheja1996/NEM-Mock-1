@@ -6,12 +6,12 @@ const cors = require("cors");
 
 const app = express();
 
-let corsOptions = {
-  origin: "http://localhost:3000",
-  optionsSuccessStatus: 200
-}
+// let corsOptions = {
+//   origin: "http://localhost:3000",
+//   optionsSuccessStatus: 200
+// }
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 app.use("/users", userRouter);
