@@ -35,7 +35,8 @@ const Contacts = () => {
   const [editObject, setEditObject] = useState({});
   const [editUserName, setEditUserName] = useState("");
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen: isEditOpen, onOpen: onEditOpen, onClose: onEditClose } = useDisclosure();
+  const { isOpen: isRegisterOpen, onOpen: onRegisterOpen, onClose: onRegisterClose } = useDisclosure();
   const dispatch = useDispatch();
   const toast = useToast();
 
@@ -79,6 +80,7 @@ const Contacts = () => {
         status: "success",
         duration: 2000,
         isClosable: true,
+        position: "top"
       });
     });
   };
@@ -110,7 +112,7 @@ const Contacts = () => {
             boxShadow:
               "0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)",
           }}
-          onClick={onOpen}
+          onClick={onRegisterOpen}
         >
           Add Contact
         </Button>
@@ -143,7 +145,7 @@ const Contacts = () => {
                           color="white"
                           onClick={() => {
                             handleEdit(el.email);
-                            onOpen();
+                            onEditOpen();
                           }}
                         >
                           Edit
@@ -165,7 +167,7 @@ const Contacts = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isRegisterOpen} onClose={onRegisterClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader bgColor={"orange"}>Enter contact details</ModalHeader>
@@ -223,7 +225,7 @@ const Contacts = () => {
         </ModalContent>
       </Modal>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isEditOpen} onClose={onEditClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader bgColor={"orange"}>
