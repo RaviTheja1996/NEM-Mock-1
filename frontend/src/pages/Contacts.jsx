@@ -33,7 +33,7 @@ const Contacts = () => {
   const [phone, setPhone] = useState("");
   const [data, setData] = useState([]);
   const [editObject, setEditObject] = useState({});
-  const [editUserName, setEditUserName] = useState("");
+  // const [editUserName, setEditUserName] = useState("");
 
   const { isOpen: isEditOpen, onOpen: onEditOpen, onClose: onEditClose } = useDisclosure();
   const { isOpen: isRegisterOpen, onOpen: onRegisterOpen, onClose: onRegisterClose } = useDisclosure();
@@ -54,8 +54,8 @@ const Contacts = () => {
   };
 
   const handleEditSubmit = () => {
-    console.log(editUserName, "in handleEditSubmit function");
     setEditObject({ label, email, username: name, phone });
+    console.log(editObject, "editObject in handleEditSubmit function");
     dispatch(EditContact(editObject)).then(() => {
       toast({
         title: "Contact Edited successfully.",
@@ -67,11 +67,11 @@ const Contacts = () => {
     tableDataFetch();
   };
 
-  const handleEdit = (username) => {
-    setEditUserName(username);
-    console.log(username, " username in handleEdit function");
-    console.log(editUserName, "in handleEdit function");
-  };
+  // const handleEdit = (username) => {
+  // setEditUserName(username);
+  // console.log(username, " username in handleEdit function");
+  // console.log(editUserName, "in handleEdit function");
+  // };
 
   const handleDelete = (username) => {
     dispatch(DeleteContact(username)).then(() => {
@@ -144,7 +144,7 @@ const Contacts = () => {
                           bgColor={"#4caf50"}
                           color="white"
                           onClick={() => {
-                            handleEdit(el.email);
+                            // handleEdit(el.email);
                             onEditOpen();
                           }}
                         >
@@ -154,7 +154,7 @@ const Contacts = () => {
                           bgColor={"#f44336"}
                           color="white"
                           onClick={() => {
-                            handleDelete(el.username);
+                            handleDelete(el.email);
                           }}
                         >
                           Delete
