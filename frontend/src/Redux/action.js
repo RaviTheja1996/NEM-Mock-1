@@ -14,7 +14,7 @@ export const DeleteContact = (obj) => async (dispatch) => {
   return axios.delete(
     `https://giddy-raincoat-bee.cyclic.app/users/delete?id=${obj._id}`,
     obj
-  ).then((res) => { dispatch({ type: DELETE_USER, payload: obj }); });
+  ).then((res) => { dispatch({ type: DELETE_USER, payload: obj }); console.log("inside dot then of delete method in action.js") });
 };
 
 export const EditContact = (obj) => async (dispatch) => {
