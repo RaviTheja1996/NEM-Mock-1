@@ -13,13 +13,13 @@ export const DeleteContact = (obj) => async (dispatch) => {
   console.log(obj);
   dispatch({ type: DELETE_USER, payload: obj });
   return axios.delete(
-    `https://giddy-raincoat-bee.cyclic.app/users/delete`,
+    `https://giddy-raincoat-bee.cyclic.app/users/delete?id=${obj._id}`,
     obj
   );
 };
 
 export const EditContact = (obj) => async (dispatch) => {
-  console.log(`obj in action.js editContact is = ${obj}`);
+  console.log(obj);
   dispatch({ type: EDIT_USER, payload: obj });
   return axios.patch(`https://giddy-raincoat-bee.cyclic.app/users/update`, obj);
 };
