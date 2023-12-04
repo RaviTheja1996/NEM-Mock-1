@@ -25,7 +25,8 @@ export const EditContact = (obj) => async (dispatch) => {
 
 export const fetchUsers = () => (dispatch) => {
   axios.get(`https://giddy-raincoat-bee.cyclic.app/users/`).then((res) => {
-    console.log(`fetching users data in action.js fetchUsers method = ${res.data}`);
+    // console.log(`fetching users data in action.js fetchUsers method = ${res.data}`);
+    console.log(res.data);
     dispatch({ type: FETCH_USERS, payload: res.data })
   });
 }

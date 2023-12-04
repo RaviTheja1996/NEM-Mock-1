@@ -102,6 +102,7 @@ const Contacts = () => {
 
   useEffect(() => {
     tableDataFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
