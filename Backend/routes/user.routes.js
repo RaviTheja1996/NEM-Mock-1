@@ -38,9 +38,8 @@ userRouter.get("/search", async (req, res) => {
 });
 
 userRouter.patch("/update", async (req, res) => {
-    const { name } = req.params;
     try {
-        const user = UserModel.findOne({ email: name });
+        const user = UserModel.findOne({ email: req.body.email });
         const updated_user = await UserModel.findByIdAndUpdate(
             { _id: user._id },
             req.body
@@ -55,9 +54,8 @@ userRouter.patch("/update", async (req, res) => {
 });
 
 userRouter.delete("/delete", async (req, res) => {
-    const { name } = req.params;
     try {
-        const user = UserModel.findOne({ name });
+        const user = UserModel.findOne({ email: req.body.email });
         const deleted_user = await UserModel.findByIdAndDelete({ _id: user._id });
         res.status(200).send({
             msg: `user with id ${user._id} is deleted successfully`,
