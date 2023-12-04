@@ -151,7 +151,7 @@ const Contacts = () => {
                     <Td>{el.phone}</Td>
                     <Td>{el.label}</Td>
                     <Td>
-                      <Flex justifyContent={"center"}>
+                      <Flex justifyContent="space-evenly">
                         <Button
                           bgColor={"#4caf50"}
                           color="white"
