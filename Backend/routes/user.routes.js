@@ -42,7 +42,8 @@ userRouter.patch("/update", async (req, res) => {
         const user = await UserModel.findOne({ email: req.body.email });
         const updated_user = await UserModel.findByIdAndUpdate(
             { _id: user._id },
-            req.body
+            req.body,
+            { new: true }
         );
         res.status(200).send({
             msg: `user with id ${user._id} is updated successfully`,
