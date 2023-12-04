@@ -76,7 +76,8 @@ const Contacts = () => {
   // };
 
   const handleDelete = (el) => {
-    let obj = { label: el.label, email: el.email, name: el.name, phone: el.phone };
+    // let obj = { label: el.label, email: el.email, name: el.name, phone: el.phone };
+    let obj = { email: el.email };
     console.log(`email in contacts.jsx handleDelete is = ${obj}`);
     dispatch(DeleteContact(obj)).then(() => {
       toast({
@@ -159,7 +160,7 @@ const Contacts = () => {
                           bgColor={"#f44336"}
                           color="white"
                           onClick={() => {
-                            handleDelete(el.email);
+                            handleDelete(el);
                           }}
                         >
                           Delete
