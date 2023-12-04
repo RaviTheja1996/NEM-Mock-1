@@ -55,7 +55,7 @@ const Contacts = () => {
 
   const handleEditSubmit = () => {
     // setEditObject({ label, email, username: name, phone });
-    let editObj = { label, email, username: name, phone };
+    let editObj = { label, email, name, phone };
     console.log(editObj, "editObject in handleEditSubmit function");
     dispatch(EditContact(editObj)).then(() => {
       toast({
