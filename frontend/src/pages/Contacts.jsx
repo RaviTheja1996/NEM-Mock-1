@@ -79,7 +79,8 @@ const Contacts = () => {
   const handleDelete = (el) => {
     // let obj = { label: el.label, email: el.email, name: el.name, phone: el.phone };
     // let obj = { email: el.email };
-    console.log(`email in contacts.jsx handleDelete is = ${el}`);
+    console.log(`object in contacts.jsx handleDelete is`);
+    console.log(el);
     dispatch(DeleteContact(el)).then(() => {
       toast({
         title: "Contact Deleted successfully.",

@@ -56,8 +56,8 @@ userRouter.patch("/update", async (req, res) => {
 
 userRouter.delete("/delete", async (req, res) => {
     try {
-        const user = await UserModel.findOne({ email: req.body.email });
-        const deleted_user = await UserModel.findByIdAndDelete({ _id: user._id });
+        // const user = await UserModel.findOne({ email: req.body.email });
+        const deleted_user = await UserModel.findByIdAndDelete({ _id: req._id });
         res.status(200).send({
             msg: `user with id ${user._id} is deleted successfully`,
             deleted_user: deleted_user,
