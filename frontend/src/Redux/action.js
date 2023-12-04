@@ -11,11 +11,10 @@ export const register = (obj) => (dispatch) => {
 export const DeleteContact = (obj) => async (dispatch) => {
   // console.log(`obj in action.js deleteContact is = ${obj}`);
   console.log(obj);
-  dispatch({ type: DELETE_USER, payload: obj });
   return axios.delete(
     `https://giddy-raincoat-bee.cyclic.app/users/delete?id=${obj._id}`,
     obj
-  );
+  ).then((res) => { dispatch({ type: DELETE_USER, payload: obj }); });
 };
 
 export const EditContact = (obj) => async (dispatch) => {
