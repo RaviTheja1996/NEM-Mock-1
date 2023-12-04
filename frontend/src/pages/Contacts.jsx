@@ -132,7 +132,7 @@ const Contacts = () => {
       <TableContainer>
         <Table variant="simple">
           <TableCaption>contacts</TableCaption>
-          <Thead bgColor="#f2f2f2">
+          <Thead bgColor="orange">
             <Tr>
               <Th>Full Name</Th>
               <Th>Email</Th>
@@ -141,7 +141,7 @@ const Contacts = () => {
               <Th>Action</Th>
             </Tr>
           </Thead>
-          <Tbody>
+          <Tbody bgColor={"black"} color={"white"}>
             {data.length > 0 &&
               data.map((el, ind) => {
                 return (
