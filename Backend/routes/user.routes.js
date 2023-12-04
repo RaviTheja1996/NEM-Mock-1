@@ -39,7 +39,7 @@ userRouter.get("/search", async (req, res) => {
 
 userRouter.patch("/update", async (req, res) => {
     try {
-        const user = UserModel.findOne({ email: req.body.email });
+        const user = await UserModel.findOne({ email: req.body.email });
         const updated_user = await UserModel.findByIdAndUpdate(
             { _id: user._id },
             req.body
