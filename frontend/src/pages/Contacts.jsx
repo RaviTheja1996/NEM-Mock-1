@@ -74,8 +74,10 @@ const Contacts = () => {
   // console.log(editUserName, "in handleEdit function");
   // };
 
-  const handleDelete = (username) => {
-    dispatch(DeleteContact(username)).then(() => {
+  const handleDelete = (email) => {
+    let obj = { email };
+    console.log(`email in contacts.jsx handleDelete is = ${obj}`);
+    dispatch(DeleteContact(obj)).then(() => {
       toast({
         title: "Contact Edited successfully.",
         status: "success",

@@ -8,6 +8,7 @@ export const register = (obj) => (dispatch) => {
 };
 
 export const DeleteContact = (obj) => (dispatch) => {
+  console.log(`obj in action.js deleteContact is = ${obj}`);
   return axios.delete(
     `https://giddy-raincoat-bee.cyclic.app/users/delete`,
     obj
@@ -15,6 +16,6 @@ export const DeleteContact = (obj) => (dispatch) => {
 };
 
 export const EditContact = (obj) => async (dispatch) => {
-  console.log(`obj in action.js editCOntact is = ${obj}`);
+  console.log(`obj in action.js editContact is = ${obj}`);
   return axios.patch(`https://giddy-raincoat-bee.cyclic.app/users/update`, obj);
 };
