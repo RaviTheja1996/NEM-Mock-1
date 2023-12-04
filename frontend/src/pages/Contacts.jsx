@@ -67,7 +67,7 @@ const Contacts = () => {
         position: "top"
       });
     });
-    dispatch(fetchUsers());
+    tableDataFetch();
   };
 
   // const handleEdit = (username) => {
@@ -82,7 +82,7 @@ const Contacts = () => {
     console.log(`object in contacts.jsx handleDelete is`);
     console.log(el);
     dispatch(DeleteContact(el));
-    dispatch(fetchUsers());
+    tableDataFetch();
     // dispatch(DeleteContact(el)).then(() => {
     //   toast({
     //     title: "Contact Deleted successfully.",
