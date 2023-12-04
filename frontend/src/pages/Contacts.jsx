@@ -81,15 +81,16 @@ const Contacts = () => {
     // let obj = { email: el.email };
     console.log(`object in contacts.jsx handleDelete is`);
     console.log(el);
-    dispatch(DeleteContact(el)).then(() => {
-      toast({
-        title: "Contact Deleted successfully.",
-        status: "success",
-        duration: 2000,
-        isClosable: true,
-        position: "top"
-      });
-    });
+    dispatch(DeleteContact(el));
+    // dispatch(DeleteContact(el)).then(() => {
+    //   toast({
+    //     title: "Contact Deleted successfully.",
+    //     status: "success",
+    //     duration: 2000,
+    //     isClosable: true,
+    //     position: "top"
+    //   });
+    // });
   };
 
   const tableDataFetch = () => {
