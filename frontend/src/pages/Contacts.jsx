@@ -87,6 +87,7 @@ const Contacts = () => {
   };
 
   const tableDataFetch = () => {
+    console.log("called tableDataFetch");
     axios.get("https://giddy-raincoat-bee.cyclic.app/users/").then((res) => {
       setData(res.data.contacts);
       console.log(res.data.contacts);
