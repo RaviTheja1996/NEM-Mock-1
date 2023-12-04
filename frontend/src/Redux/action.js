@@ -14,6 +14,7 @@ export const DeleteContact = (obj) => (dispatch) => {
   );
 };
 
-export const EditContact = (obj) => (dispatch) => {
+export const EditContact = (obj) => async (dispatch) => {
+  console.log(`obj in action.js editCOntact is = ${obj}`);
   return axios.patch(`https://giddy-raincoat-bee.cyclic.app/users/update`, obj);
 };
