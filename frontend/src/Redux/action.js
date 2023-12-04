@@ -7,7 +7,7 @@ export const register = (obj) => (dispatch) => {
   );
 };
 
-export const DeleteContact = (obj) => (dispatch) => {
+export const DeleteContact = (obj) => async (dispatch) => {
   console.log(`obj in action.js deleteContact is = ${obj}`);
   return axios.delete(
     `https://giddy-raincoat-bee.cyclic.app/users/delete`,

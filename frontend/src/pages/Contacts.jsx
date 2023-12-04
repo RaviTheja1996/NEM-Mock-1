@@ -63,6 +63,7 @@ const Contacts = () => {
         status: "success",
         duration: 2000,
         isClosable: true,
+        position: "top"
       });
     });
     tableDataFetch();
@@ -74,12 +75,12 @@ const Contacts = () => {
   // console.log(editUserName, "in handleEdit function");
   // };
 
-  const handleDelete = (email) => {
-    let obj = { email };
+  const handleDelete = (el) => {
+    let obj = { label: el.label, email: el.email, name: el.name, phone: el.phone };
     console.log(`email in contacts.jsx handleDelete is = ${obj}`);
     dispatch(DeleteContact(obj)).then(() => {
       toast({
-        title: "Contact Edited successfully.",
+        title: "Contact Deleted successfully.",
         status: "success",
         duration: 2000,
         isClosable: true,
