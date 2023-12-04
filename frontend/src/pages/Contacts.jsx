@@ -22,18 +22,19 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { register, DeleteContact, EditContact } from "../Redux/action";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { register, DeleteContact, EditContact, fetchUsers } from "../Redux/action";
+// import axios from "axios";
 
 const Contacts = () => {
   const [label, setLabel] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   // const [editObject, setEditObject] = useState({});
   // const [editUserName, setEditUserName] = useState("");
+  const data = useSelector((store) => store.users);
 
   const { isOpen: isEditOpen, onOpen: onEditOpen, onClose: onEditClose } = useDisclosure();
   const { isOpen: isRegisterOpen, onOpen: onRegisterOpen, onClose: onRegisterClose } = useDisclosure();
@@ -77,9 +78,9 @@ const Contacts = () => {
 
   const handleDelete = (el) => {
     // let obj = { label: el.label, email: el.email, name: el.name, phone: el.phone };
-    let obj = { email: el.email };
-    console.log(`email in contacts.jsx handleDelete is = ${obj}`);
-    dispatch(DeleteContact(obj)).then(() => {
+    // let obj = { email: el.email };
+    console.log(`email in contacts.jsx handleDelete is = ${el}`);
+    dispatch(DeleteContact(el)).then(() => {
       toast({
         title: "Contact Deleted successfully.",
         status: "success",
@@ -92,10 +93,11 @@ const Contacts = () => {
 
   const tableDataFetch = () => {
     console.log("called tableDataFetch");
-    axios.get("https://giddy-raincoat-bee.cyclic.app/users/").then((res) => {
-      setData(res.data.contacts);
-      console.log(res.data.contacts);
-    });
+    // axios.get("https://giddy-raincoat-bee.cyclic.app/users/").then((res) => {
+    //   setData(res.data.contacts);
+    //   console.log(res.data.contacts);
+    // });
+    dispatch(fetchUsers());
   };
 
   useEffect(() => {

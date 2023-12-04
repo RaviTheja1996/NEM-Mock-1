@@ -1,4 +1,5 @@
 import axios from "axios";
+import { DELETE_USER, EDIT_USER, FETCH_USERS } from "./actionTypes";
 
 export const register = (obj) => (dispatch) => {
   return axios.post(
@@ -9,6 +10,7 @@ export const register = (obj) => (dispatch) => {
 
 export const DeleteContact = (obj) => async (dispatch) => {
   console.log(`obj in action.js deleteContact is = ${obj}`);
+  dispatch({ type: DELETE_USER, payload: obj });
   return axios.delete(
     `https://giddy-raincoat-bee.cyclic.app/users/delete`,
     obj
@@ -17,5 +19,13 @@ export const DeleteContact = (obj) => async (dispatch) => {
 
 export const EditContact = (obj) => async (dispatch) => {
   console.log(`obj in action.js editContact is = ${obj}`);
+  dispatch({ type: EDIT_USER, payload: obj });
   return axios.patch(`https://giddy-raincoat-bee.cyclic.app/users/update`, obj);
 };
+
+export const fetchUsers = () => (dispatch) => {
+  axios.get(`https://giddy-raincoat-bee.cyclic.app/users/`).then((res) => {
+    console.log(`fetching users data in action.js fetchUsers method = ${res.data}`);
+    dispatch({ type: FETCH_USERS, payload: res.data })
+  });
+}
