@@ -12,8 +12,7 @@ export const DeleteContact = (obj) => async (dispatch) => {
   // console.log(`obj in action.js deleteContact is = ${obj}`);
   console.log(obj._id);
   axios.delete(
-    `https://giddy-raincoat-bee.cyclic.app/users/delete?id=${obj._id}`,
-    obj
+    `https://giddy-raincoat-bee.cyclic.app/users/delete?id=${obj._id}`
   )
     .then((res) => { dispatch({ type: DELETE_USER, payload: obj }); console.log("inside dot then of delete method in action.js"); console.log(res.data); })
     .catch((err) => { console.log(err.message); console.log("inside action.js delete method axios catch block") });
